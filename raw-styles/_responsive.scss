@@ -1,0 +1,65 @@
+// Container
+
+.set-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+$max: 100;
+$nums-grid: 12;
+$breakpoint-fixed: "xs";
+
+// Grid
+
+@for $i from 1 to $nums-grid + 1 {
+  $width: ($i * $max) / $nums-grid;
+
+  .column-#{$i},
+  .column-#{$breakpoint-fixed}-#{$i} {
+    flex-grow: 0;
+    max-width: $width * 1%;
+    flex-basis: $width * 1%;
+  }
+}
+
+@each $key, $value in $breakpoints {
+  @if $key != "xs" {
+    @include mq-up($key) {
+      @for $i from 1 to $nums-grid + 1 {
+        $width: ($i * $max) / $nums-grid;
+
+        .column-#{$key}-#{$i} {
+          flex-grow: 0;
+          max-width: $width * 1%;
+          flex-basis: $width * 1%;
+        }
+      }
+    }
+  }
+}
+
+.fc-item {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+// Max Width
+.max-w-responsive {
+  max-width: none;
+}
+
+@each $key, $value in $breakpoints {
+  @if $key != "xs" {
+    @include mq-up($key) {
+      .max-w-#{$key} {
+        max-width: #{$value};
+      }
+
+      .max-w-responsive {
+        max-width: #{$value};
+      }
+    }
+  }
+}

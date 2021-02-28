@@ -1,0 +1,11 @@
+@mixin mq-up($keyName) {
+    @media screen and (min-width: map-get($map: $breakpoints, $key: $keyName)) {
+        @content;
+    }
+}
+
+@mixin mq-down($keyName) {
+    @media screen and (max-width: map-get($map: $breakpoints, $key: $keyName)) {
+        @content;
+    }
+}

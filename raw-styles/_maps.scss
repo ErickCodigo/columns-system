@@ -1,0 +1,28 @@
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xlg: 1200px,
+  xxlg: 1400px,
+);
+
+$paddings: (
+  p: "padding",
+  pl: "padding-left",
+  pr: "padding-right",
+  pt: "padding-top",
+  pb: "padding-bottom",
+  px: "",
+  py: "",
+);
+
+$margins: (
+  m: "margin",
+  ml: "margin-left",
+  mr: "margin-right",
+  mt: "margin-top",
+  mb: "margin-bottom",
+  mx: "",
+  my: "",
+);
